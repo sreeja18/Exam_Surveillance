@@ -1,0 +1,30 @@
+### Getting hands on..
+
+## We did code on Face Landmark Detection
+
+
+# Import Packages
+import cv2
+import os
+import numpy as np
+
+# save face detection algorithm's name as haarcascade
+haarcascade = "haarcascade_frontalface_alt2.xml"
+#haarcascade_clf = "data/" + haarcascade
+
+# create an instance of the Face Detection Cascade Classifier
+detector = cv2.CascadeClassifier(haarcascade)
+
+
+# save facial landmark detection model's name as LBFmodel
+LBFmodel = "LFBmodel.yaml"
+LBFmodel_file = "data/" + LBFmodel
+##
+
+# create an instance of the Facial landmark Detector with the model
+landmark_detector  = cv2.face.createFacemarkLBF()
+landmark_detector.loadModel(LBFmodel_file)
+
+
+
+## as of week 2 we did code on using Models, Haarcascade and LFBModel
