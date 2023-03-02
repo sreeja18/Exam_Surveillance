@@ -1,0 +1,29 @@
+###completed the code on face landmark detection
+
+
+#Get image from webcam
+print("checking webcam for connection...")
+webcam_cap=cv2.Videocapture(0)
+
+while(True):
+_,frame=webcam_cap.read()
+
+gray=cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
+
+faces=detector.detctMultiscale(gray)
+for(x,y,w,d) in faces:
+_,landmarks=landmark_detector.fit(gray,np.array(faces))
+
+for landmark in landmarks:
+for x,y in landmark[0]:
+cv2.Circle(frame,(int(x), int(y)), 1, (255, 0, 0), 2)
+
+cv2.imshow("frame", frame)
+
+if cv2.waitkey(20) & OxFF == ord('q'):
+   wwebcam_cap.relaese()
+   cv2.destroyAllWindows()
+   break
+ 
+ 
+ ###end of face landmark detection 
